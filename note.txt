@@ -59,7 +59,35 @@ to check docker image
 
 run image
 -> docker run docker-name
+    -> if image doesn't found local, it will find online
+
+run image in background
+-> docker run -d docker-name
 
 
 to pull docker
 -> docker pull docker-name
+    -> can check in https://hub.docker.com/
+-> docker pull docker-name:latest
+    -> docker pull latest
+
+to check current docker running
+-> docker ps
+
+
+to check docker logs image
+-> docker logs docker-port
+    -> docker port in here can find using docker images
+
+port binding
+-> need to binding host port to docker port
+-> docker run -d -p 9000:80 nginx
+    -> -p => port mapping nginx
+        -> -p {HOST_PORT}:{CONTAINER_PORT}
+
+stop running docker
+-> docker stop docker-port
+    -> docker port in here can find using docker images
+
+
+choosing host port
