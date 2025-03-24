@@ -1,0 +1,65 @@
+Learning source : 
+-> https://www.youtube.com/watch?v=pTFZFxd4hOI
+
+Reason use docker
+-> different software version
+
+Container
+-> each stack used in one place
+
+Container vs VM
+-> VM
+    -> physical hardware
+    -> problem
+        -> need full OS
+        -> slow start
+        -> resource intensive
+-> containers
+    -> lightweight
+    -> can start quickly
+
+
+Docker architecture
+-> server => docker engine
+
+Install Docker
+-> Link: https://docs.docker.com/desktop/setup/install/windows-install/
+-> check version : docker version
+
+
+Development Workflow
+-> add dockerfile
+
+
+Docker in action
+-> start with OS
+-> install node
+-> copy app files
+-> run node app.js
+
+list dockerfile
+-> FROM
+    -> what want to use
+    -> FROM node:alpine
+-> COPY . /app
+-> CMD node /app/app.js
+    -> what command to run
+    -> if want to not include /app
+        -> add WORKDIR
+            -> WORKDIR /app
+            -> CMD node app.js
+
+to build docker
+-> docker build -t tag-name directory-file
+    -> docker build -t hello-docker hello-docker
+
+to check docker image
+-> docker image
+-> docker image ls
+
+run image
+-> docker run docker-name
+
+
+to pull docker
+-> docker pull docker-name
