@@ -89,5 +89,69 @@ stop running docker
 -> docker stop docker-port
     -> docker port in here can find using docker images
 
+check all docker running or stop
+-> docker ps -a
+    -> will list all of active and stopped container
 
-choosing host port
+start docker 
+-> docker start docker-id
+-> docker start docker-name
+    -> id can get from docker ps
+        -> example name : cool_varahamihira
+        -> example id : b33038a22a37
+
+create container docker with docker name
+-> docker run --name docker-name -d -p {HOST_PORT}:{CONTAINER_PORT}
+    -> docker-name => whatever you want
+
+public dockerhub
+-> https://hub.docker.com/
+
+private dockerhub
+-> example :
+    -> aws
+    ->  google cloud
+-> can use it in dockerhub
+    -> set it as private
+
+docker registry
+-> service providing storage
+-> contain many repository
+-> more like library
+
+
+-> docker repo
+    -> collection of image have same but different version
+    -> example => node, mongo, nginx
+
+create own image
+-> stored in Dockerfile
+
+Structure docker file
+-> start from parent image or base image
+    -> what tool you need to use
+1. FROM
+    -> this is base image 
+        -> example : FROM node:23-alpine3.20
+            -> node : image want to use
+            -> 23-alpine3.20
+                -> version of node want to use based on docker hub
+    -> same like command install app
+2. COPY
+    -> to run directory that want to use
+    -> COPY directory-want-to-copy directory-that-want-to-use
+        -> COPY  docker-node /app/
+3. RUN
+    -> will run command inside container
+        -> RUN npm install
+4. WORKDIR
+    -> set the working directory for all following commands
+    -> like changing directory
+5. CMD
+    -> command that will be executed when Docker container starts
+    -> only one CMD in a Dockerfile
+        -> CMD ["node", "app.js"]
+    
+run docker after create image
+-> docker run -d -p 3000:3000 node-app-nico:1.0
+    -> for version/tag need to included inside it too
