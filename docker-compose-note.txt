@@ -1,0 +1,30 @@
+docker compose
+-> for run containers together
+
+Try without compose
+-> create docker network
+-> start mongodb containers
+-> start mongo express container
+
+remove docker image
+-> docker image docker-name
+
+Step by step without compose
+1. create network
+    -> docker network create docker-name
+        -> docker network create mongo-network
+2. image mongo
+    -> install docker
+        -> docker run -d --network mongo-network --name mongo-nico `
+    --env MONGO_INITDB_ROOT_USERNAME=admin `
+    --env MONGO_INITDB_ROOT_PASSWORD=secret `
+    mongo
+3. image mongo-express
+    -> docker run -it --rm `
+    --network mongo-network `
+    --name mongo-express `
+    -p 8081:8081 `
+    --env ME_CONFIG_MONGODB_ADMINUSERNAME=admin `
+    --env ME_CONFIG_MONGODB_ADMINPASSWORD=secret `
+    --env ME_CONFIG_MONGODB_SERVER=mongo-nico `
+    mongo-express
