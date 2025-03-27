@@ -1,0 +1,46 @@
+why docker compose
+-> to simplified the process and configure services
+-> when there is update, no need to run one by one
+
+
+docker-compose
+-> single yaml file
+-> using single command to create and start all service application
+-> it can be versioned
+-> no need to create network
+
+
+command for docker compose (indentation sensitive)
+1. version:'3.1'
+    -> version of docker compose
+2. services:
+    -> list of service in containers that want to run
+        -> image
+            -> name of image / service that want to use
+        -> ports
+            -> port used by image / service
+        -> environment
+            -> like username, password of current service
+    -> it can be more than 1 and use same format
+
+execute docker compose
+-> docker compose -f file-name.yaml up
+    -> -f mean using filename
+-> docker compose -f compose.yaml up -d
+    -> command -d
+        -> to run in background
+
+control start up order
+-> use depends_on
+    -> depends_on:
+      - mongo
+
+remove containers
+-> docker compose -f compose.yaml down
+    -> to remove created by up
+
+stop containers
+-> docker compose -f compose.yaml stop
+
+start docker again
+-> docker compose -f compose.yaml start
